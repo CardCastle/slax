@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Slack incoming webhooks made easy. Ruby easy.}
   spec.description   = %q{Send slack incoming webhooks using an easy builder}
-  spec.homepage      = "https://ozguild.co"
+  spec.homepage      = "https://github.com/OzGuild/slax"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
