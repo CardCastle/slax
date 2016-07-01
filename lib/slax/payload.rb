@@ -1,3 +1,5 @@
+require 'httparty'
+
 module Slax
   class Payload
     def initialize(url, payload)
@@ -21,7 +23,7 @@ module Slax
     private
 
     def build_and_send
-      HTTParty.post(@url.to_s, body: @payload, headers: { 'Content-Type' => 'application/json' })
+      ::HTTParty.post(@url.to_s, body: @payload.to_json, headers: { 'Content-Type' => 'application/json' })
     end
   end
 end

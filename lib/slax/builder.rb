@@ -3,7 +3,7 @@ module Slax
     VALID_PARAMS = [:text, :username, :channel, :icon_emoji]
 
     def initialize
-      @payload = {}
+      @payload = { text: "" }
     end
 
     def method_missing(name, *args, &block)
@@ -18,7 +18,7 @@ module Slax
     end
 
     def payload
-      Slax::Payload.new(@payload)
+      @payload
     end
   end
 end
