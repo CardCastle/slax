@@ -1,5 +1,5 @@
 require "slax/version"
 
 module Slax
-  # Your code goes here...
+  autoload :SimpleMessage, 'slax/simple_message'
 end
