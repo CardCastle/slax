@@ -1,8 +1,8 @@
 # Slax
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/slax`. To experiment with that code, run `bin/console` for an interactive prompt.
+Slack incoming webhooks made easy. Ruby easy.
 
-TODO: Delete this and the text above, and describe your gem
+The gem provides a simple DSL for building and sending Slack incoming webhooks.
 
 ## Installation
 
@@ -22,7 +22,37 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Get an incoming webhook url by adding the integration to your team [here](https://my.slack.com/services/new/incoming-webhook/). 
+
+### Simple Message
+
+To send a simple message.
+
+```ruby
+url = "" # incoming webhook url
+
+# build the message
+message = Slax::SimpleMessage.build(url) do
+    text "Hello from Slax" # The text to send, defaults to ""  
+
+    # optional 
+    icon_emoji ":ghost:" # give you message a nice emoji 
+    channel "#general" # override the channel to send the message to
+    username "Slax" # override the username
+end
+
+response = message.send # send the message, and do things with the response
+
+# OR
+
+message.send! # throw exception on failure
+```
+
+## // TODO
+
+- [ ] Complicated Messages (attachments, footers, buttons etc)
+- [ ] link helpers 
+- [ ] Tests
 
 ## Development
 
@@ -32,7 +62,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/slax. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ozguild/slax. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
