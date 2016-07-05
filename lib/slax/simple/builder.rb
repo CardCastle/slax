@@ -1,4 +1,4 @@
-module Slax
+module Slax::Simple
   class Builder < BasicObject
     VALID_PARAMS = [:text, :username, :channel, :icon_emoji]
 
